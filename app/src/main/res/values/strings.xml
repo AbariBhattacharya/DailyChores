@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">DailyChores</string>
+    <string name="title">Title</string>
+    <string name="detail">Detail</string>
+    <string name="add">Add Chore</string>
+    <string name="create">Create Chore</string>
+    <string name="remove">Remove Chore</string>
+
 </resources>
