@@ -1,6 +1,7 @@
 package com.example.dell.dailychores;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -24,6 +25,7 @@ public class DisplayListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_list);
+        DatabaseHelper databaseHelper=DatabaseHelper.getDbInstance(getApplicationContext());
 
         Log.v("DisplayListActivity","in OnCreate1");
 
@@ -31,7 +33,7 @@ public class DisplayListActivity extends AppCompatActivity {
 
         Log.v("DisplayListActivity","in OnCreate2");
 
-        adapter=new Chores_Adapter(getBaseContext(),getChores());
+        adapter=new Chores_Adapter(getBaseContext(),databaseHelper.getChores());
 
         Log.v("DisplayListActivity","in OnCreate3");
 
@@ -39,7 +41,7 @@ public class DisplayListActivity extends AppCompatActivity {
 
         Log.v("DisplayListActivity","in OnCreate4");
 
-        recyclerView.setLayoutManager(new LinearLayoutManager(getBaseContext()));
+        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
 
         Log.v("DisplayListActivity","in OnCreate5");
 
@@ -71,23 +73,6 @@ public class DisplayListActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public static List<Chores> getChores(){
-        List<Chores> data=new ArrayList<>();
-        Log.v("DisplayListActivity","in getChores() function");
-        String[] titles={"abc","def","ijk"};
-        String[] details={"abcABC","defDEF","ijkIJK"};
-        for(int i=0;i<titles.length && i<details.length;i++)
-        {
-            Chores current=new Chores();
-
-            current.title=titles[i];
-            current.detail=details[i];
-            Log.v("","DisplayListActivity: " +i);
-            data.add(current);
-
-        }
-        return data;
-    }
 
 
 
