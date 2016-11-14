@@ -97,4 +97,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return chores;
     }
 
+    public int deleteData(String string){
+        SQLiteDatabase db=this.getWritableDatabase();
+        int i=db.delete(TABLE_NAME, "Title = ?",new String[] {string});
+        return i;
+    }
+
+
+
 }

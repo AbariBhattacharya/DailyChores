@@ -2,6 +2,7 @@ package com.example.dell.dailychores;
 
 import android.content.Intent;
 import android.database.Cursor;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -63,6 +64,7 @@ public class DisplayListActivity extends AppCompatActivity {
                 createChore();
                 return true;
 
+
             default:
                 return super.onOptionsItemSelected(item);
         }}
@@ -73,7 +75,11 @@ public class DisplayListActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-
+private void removeChore(){
+    Intent intent = new Intent(getBaseContext(), RemoveChore.class);
+    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+    startActivity(intent);
+}
 
 
 }

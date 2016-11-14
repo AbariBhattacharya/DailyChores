@@ -16,7 +16,16 @@
             </intent-filter>
         </activity>
         <activity android:name=".EnterChore" />
-        <activity android:name=".DisplayChoreDetailActivity"></activity>
+        <activity
+            android:name=".DisplayChoreDetailActivity"
+            android:label="@string/displayChore"
+            android:parentActivityName=".DisplayListActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENTACTIVITY"
+                android:value="com.example.dell.dailychores.DisplayListActivity"></meta-data>
+        </activity>
+        <activity android:name=".RemoveChore"></activity>
     </application>
 
 </manifest>
